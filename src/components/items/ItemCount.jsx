@@ -1,17 +1,17 @@
-import { useState } from "react"
+import { useCount } from "../hooks/useCount";
 
-const ItemCount = () => {
+export const ItemCount = ({ stock, initial, onAdd }) => {
+  const { count, decrement, increment } = useCount(initial, stock);
 
-const [count, setCount] = useState(0);
+  return (
+    <>
+      <div className="count--container">
+        <button onClick={decrement}>-</button>
+        <span>{count}</span>
+        <button onClick={increment}>+</button>
 
-return (
-<> 
-  <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>Agregar</button>
-      <button onClick={() => setCount(count == 0)}>Resetear</button>
-      <button onClick={() => setCount(count > 0 ? count -1 : null)}>Quitar</button>
-</>  );
-
-}
-
-export default ItemCount
+        <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+      </div>
+    </>
+  );
+};
