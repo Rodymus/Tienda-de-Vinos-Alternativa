@@ -21,7 +21,7 @@ const ProductDetail = ({ productSelected }) => {
       {productSelected.stock > 0 ? (
         <ItemCount stock={productSelected.stock} initial={1} onAdd={onAdd} />
       ) : (
-        <h3>No hay stock</h3>
+        <h3>Sin stock</h3>
       )}
     </>
   );
