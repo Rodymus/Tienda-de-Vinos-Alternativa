@@ -1,9 +1,12 @@
 import ItemList from "./ItemList";
-import { useEffect, useState} from "react"
-import { products } from "../../productsMock"
+import { useEffect, useState} from "react";
+import { products } from "../../productsMock";
+import { useParams } from "react-router-dom";
+
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
+  const { category } = useParams();
   
   useEffect(() => {
     const tarea = new Promise((resolve) => { 
@@ -18,8 +21,14 @@ const ItemListContainer = () => {
     
   }, []);
   
+  const catFilter = items.filter((item)=> item.category === category);
   
-  return   (<ItemList items={items} />);
+  return   (
+    <div>
+      {category ? <ItemList items={catFilter} /> : <ItemList items={items} />}
+    </div>
+  
+  );
     
 };
 

@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Spacer, Select, Image } from '@chakra-ui/react';
-import Cart from './cart/Cart';
+import CartWidget from './cart/CartWidget';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -19,7 +19,7 @@ const NavBar = () => {
           <option value="option3">Rosado</option>
         </Select>
 
-        <Cart />
+        <CartWidget />
       </Flex>
 
       {/*<Box boxSize='800px'>
