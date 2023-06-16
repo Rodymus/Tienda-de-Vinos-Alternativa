@@ -1,6 +1,6 @@
 import { useCount } from "../hooks/useCount";
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const { count, decrement, increment } = useCount(initial, stock);
 
   return (
@@ -15,3 +15,5 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
     </>
   );
 };
+
+export default ItemCount;

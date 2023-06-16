@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Spacer, Select, Image } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, MenuItem, MenuList, Menu, MenuButton, Button } from '@chakra-ui/react';
 import CartWidget from './cart/CartWidget';
 import { Link } from 'react-router-dom';
+
 
 const NavBar = () => {
   return (
@@ -12,13 +13,28 @@ const NavBar = () => {
           </Link>
         </Box>
         <Spacer />
-
-        <Select variant="filled" placeholder="Eliga el color">
-          <option value="option1">Tinto</option>
-          <option value="option2">Blanco</option>
-          <option value="option3">Rosado</option>
-        </Select>
-
+      <Menu>
+        <MenuButton
+        as={Button}
+        size="lg"
+        variant="outline"
+        colorScheme="blue"
+        >
+          Categorias
+        </MenuButton>
+        <MenuList>
+          <Link to={'/category/${"tinto"}'}>
+            <MenuItem>Tinto</MenuItem>
+          </Link>
+          <Link to={'/category/${"blanco"}'}>
+            <MenuItem>Blanco</MenuItem>
+          </Link>
+          <Link to={'/category/${"rosado"}'}>
+            <MenuItem>Rosado</MenuItem>
+          </Link>
+        </MenuList>
+      </Menu>
+      <Spacer />
         <CartWidget />
       </Flex>
 
