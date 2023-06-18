@@ -9,14 +9,17 @@ const ProductCard = ({elemento}) => {
       <Box>
       <Stack mt='6' spacing='3'>
         <Heading size='md'>{elemento.title}</Heading>
+        <p>{elemento.description}</p>
       <Image boxSize='300px' src={elemento.img} />
         <Text color='blue.600' fontSize='2xl'>$ {elemento.price}</Text>
       </Stack>
       <Divider />
       <CardFooter>
-        <Button variant='solid' colorScheme='blue'>
-          Ver detalle
-        </Button>        
+        <Link to={`/itemDetail/${elemento.id}`}>
+          <Button variant='solid' colorScheme='blue'>
+            Ver detalle
+          </Button>
+      </ Link>
       </CardFooter>
       </Box>
     </Card>
