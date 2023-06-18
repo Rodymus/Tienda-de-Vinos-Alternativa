@@ -9,7 +9,7 @@ const ItemListContainer = () => {
   const { categoryN } = useParams();
 
   useEffect(() => {
-    let productosFiltrados = products.filter((e) => products.category === categoryN);
+    let productosFiltrados = products.filter((products) => products.category === categoryN);
 
     console.log(categoryN);
 
