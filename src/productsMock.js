@@ -43,7 +43,7 @@ export const products = [
         price: 1780,
         stock: 5,
         description: "Vino blanco para todos",
-        category: "tinto",
+        category: "blanco",
         img: "https://res.cloudinary.com/da5x6tuuw/image/upload/v1685659338/blancoCaja_bhnmbo.jpg"
     },
     {
@@ -52,7 +52,7 @@ export const products = [
         price: 1780,
         stock: 5,
         description: "Vino para hombres de ciudad",
-        category: "tinto",
+        category: "rosado",
         img: "https://res.cloudinary.com/da5x6tuuw/image/upload/v1685659338/rosadoCaja_bwgywo.jpg"
     }
   ]
