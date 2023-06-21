@@ -4,7 +4,12 @@ export const CartContext = createContext();
 
 //Creación del contexto
 const CartContextProvider = ({ children }) => {
-  return <CartContext.Provider> {children} </CartContext.Provider>
+  
+  let data = {
+
+  }
+  
+  return <CartContext.Provider value = { data }> {children} </CartContext.Provider>
 };
 
 export default CartContextProvider;
