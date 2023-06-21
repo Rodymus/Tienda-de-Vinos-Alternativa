@@ -11,8 +11,6 @@ const ItemListContainer = () => {
   useEffect(() => {
     let productosFiltrados = products.filter((products) => products.category === categoryN);
 
-    console.log(categoryN);
-
     const tarea = new Promise((resolve) => {
       resolve(categoryN ? productosFiltrados : products);
     });
@@ -23,10 +21,6 @@ const ItemListContainer = () => {
         console.log(rechazo);
       });
   }, [categoryN]);
-
-  {
-    /*const catFilter = items.filter((item)=> item.category === category);*/
-  }
 
   return <ItemList items={items} />
   

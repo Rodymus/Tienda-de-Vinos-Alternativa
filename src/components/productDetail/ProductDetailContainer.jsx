@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
 import { products } from "../../productsMock"
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
 
-   const { id } = useParams()
-   console.log(id)
-  
+    const {agregarAlCarrito} = useContext(CartContext)
 
+   const { id } = useParams()
+  
   useEffect(() => {
     let productFind = products.find((product) => product.id === +id); 
 
@@ -24,7 +25,7 @@ const ProductDetailContainer = () => {
   }, [id]);
 
 
-  return <ProductDetail productSelected={productSelected}  />;
+  return <ProductDetail productSelected={productSelected} agregarAlCarrito={agregarAlCarrito} />;
 };
 
 export default ProductDetailContainer;

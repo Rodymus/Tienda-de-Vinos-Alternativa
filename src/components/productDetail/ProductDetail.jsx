@@ -1,6 +1,6 @@
 import { ItemCount } from "../cart/ItemCount";
 
-const ProductDetail = ({ productSelected }) => {
+const ProductDetail = ({ productSelected, agregarAlCarrito }) => {
 
   const onAdd = (cantidad) => {
     
@@ -9,7 +9,7 @@ const ProductDetail = ({ productSelected }) => {
       quantity: cantidad,
     };
 
-    console.log(data);
+    agregarAlCarrito(data)
   };
 
   return (
