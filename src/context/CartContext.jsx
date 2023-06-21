@@ -9,7 +9,18 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState( [] )
 
   const agregarAlCarrito = ( newProduct ) =>{
-    setCart( [ ...cart, newProduct ] );
+    let exist = isInCart(newProduct.id);
+    if (exist){
+      alert("ya existe")
+    }else{
+      setCart([...cart, newProduct])
+    }
+       
+  }
+
+  const isInCart = (id) =>{
+    let exist = cart.some((prod) => prod.id === id);
+    return exist;
   }
   
   let data = {
