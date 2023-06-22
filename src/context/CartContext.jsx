@@ -33,14 +33,23 @@ const CartContextProvider = ({ children }) => {
     return exist;
   };
 
+  //para limpiar el carrito facilmente
   const clearCart = () => {
     setCart([])
   }
 
+  const removeById = (id) => {
+    let newArray = cart.filter((product)=> product.id !== id)
+    setCart(newArray)
+  }
+
+
+
   let data = {
-    cart: cart,
-    agregarAlCarrito: agregarAlCarrito,
-    clearCart: clearCart,
+    cart,
+    agregarAlCarrito,
+    clearCart,
+    removeById,
   };
 
   return <CartContext.Provider value={data}> {children} </CartContext.Provider>;
