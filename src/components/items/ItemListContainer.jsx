@@ -2,6 +2,7 @@ import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { products } from '../../productsMock';
 import { useParams } from 'react-router-dom';
+import { PacmanLoader } from "react-spinners";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -12,7 +13,9 @@ const ItemListContainer = () => {
     let productosFiltrados = products.filter((products) => products.category === categoryN);
 
     const tarea = new Promise((resolve) => {
-      resolve(categoryN ? productosFiltrados : products);
+      setTimeout(() => {
+        resolve(categoryN ? productosFiltrados : products);
+      }, 2000);
     });
 
     tarea
@@ -21,6 +24,15 @@ const ItemListContainer = () => {
         console.log(rechazo);
       });
   }, [categoryN]);
+
+  //if con return temprano - TECNICA DE RENDERING
+  if (items.length === 0) {
+    return (
+      <h1>
+        <PacmanLoader color="#36d7b7" />
+      </h1>
+    );
+  }
 
   return <ItemList items={items} />
   
