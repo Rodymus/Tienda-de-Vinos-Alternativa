@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
 
-    const {agregarAlCarrito} = useContext(CartContext)
+    const {addToCart} = useContext(CartContext)
 
    const { id } = useParams()
   
@@ -25,7 +25,7 @@ const ProductDetailContainer = () => {
   }, [id]);
 
 
-  return <ProductDetail productSelected={productSelected} agregarAlCarrito={agregarAlCarrito} />;
+  return <ProductDetail productSelected={productSelected} addToCart={addToCart} />;
 };
 
 export default ProductDetailContainer;

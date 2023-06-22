@@ -6,7 +6,7 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const agregarAlCarrito = (newProduct) => {
+  const addToCart = (newProduct) => {
     //preguntar si existe
     let exist = isInCart(newProduct.id);
     
@@ -47,7 +47,7 @@ const CartContextProvider = ({ children }) => {
 
   let data = {
     cart,
-    agregarAlCarrito,
+    addToCart,
     clearCart,
     removeById,
   };
