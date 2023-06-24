@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import ProductDetailContainer from "./components/productDetail/ProductDetailContainer";
 import Cart from './components/cart/Cart';
 import CartContextProvider from './context/CartContext';
+import FormFormik from './components/formFormik/FormFormik';
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
                 />
                 <Route path="/category/:categoryN" element={<ItemListContainer />} />
                 <Route path="/itemDetail/:id" element={<ProductDetailContainer />} />
-                <Route path="Cart" element={<Cart />} />
+                <Route path="/Cart" element={<Cart />} />
+                <Route path="/formik" element={<FormFormik />} />
             </Routes>
           </CartContextProvider>
         </BrowserRouter>

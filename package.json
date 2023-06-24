@@ -12,11 +12,13 @@
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "formik": "^2.4.2",
     "framer-motion": "^9.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.12.1",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
