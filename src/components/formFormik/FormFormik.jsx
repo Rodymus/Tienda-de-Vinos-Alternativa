@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react';
+
 import {
   FormControl,
   FormLabel,
@@ -10,6 +10,8 @@ import {
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+//https://chakra-ui.com/docs/components/form-control/usage
+
 const FormFormik = () => {
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -18,7 +20,6 @@ const FormFormik = () => {
       telefono: '',
     },
     onSubmit: (datos) => {
-      console.log('el formulario se envio con exito');
       console.log(datos);
       // conecto con la api
     },
@@ -28,15 +29,20 @@ const FormFormik = () => {
         .required('Complete este campo')
         .min(3, 'Ingrese al menos 3 caracteres'),
       email: Yup.string()
-        .email("Ingrese unemail valido!")
-        .required("Completar para continuar"),
+        .email('Ingrese unemail valido!')
+        .required('Completar para continuar'),
+      telefono: Yup.number()
+        .required('Ingrese un telefono valido')
+        .min(7, 'ingrese un telefono valido'),
     }),
   });
+
+  const isError = Input === '';
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <FormControl isRequired>
+        <FormControl >
           <FormLabel>Ingresa tus datos</FormLabel>
           <Input
             name="nombre"
@@ -54,7 +60,8 @@ const FormFormik = () => {
           <span>{errors.email}</span>
           <Input
             name="telefono"
-            placeholder="Telefono"
+            type="number"
+            placeholder="number"
             onChange={handleChange}
           />
           <span>{errors.telefono}</span>
