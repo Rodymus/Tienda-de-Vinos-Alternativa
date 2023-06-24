@@ -28,7 +28,7 @@ const App = () => {
                 <Route path="/category/:categoryN" element={<ItemListContainer />} />
                 <Route path="/itemDetail/:id" element={<ProductDetailContainer />} />
                 <Route path="/Cart" element={<Cart />} />
-                <Route path="/formik" element={<FormFormik />} />
+                <Route path="/form" element={<FormFormik />} />
             </Routes>
           </CartContextProvider>
         </BrowserRouter>
