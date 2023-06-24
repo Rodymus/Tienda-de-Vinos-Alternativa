@@ -8,10 +8,10 @@ import {
   Input,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
 const FormFormik = () => {
-  const { handleSubmit, handleChange } = useFormik({
+  const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       nombre: '',
       email: '',
@@ -22,7 +22,12 @@ const FormFormik = () => {
       console.log(datos);
       // conecto con la api
     },
-    //validationSchema:
+    validateOnChange: false,
+    validationSchema: Yup.object({
+      nombre: Yup.string()
+        .required('Complete este campo')
+        .min(3, 'Ingrese al menos 3 caracteres'),
+    }),
   });
 
   return (
@@ -36,17 +41,20 @@ const FormFormik = () => {
             placeholder="Nombre"
             onChange={handleChange}
           />
+          <span>{errors.nombre}</span>
           <Input
             name="email"
             type="email"
             placeholder="Email"
             onChange={handleChange}
           />
+          <span>{errors.email}</span>
           <Input
             name="telefono"
             placeholder="Telefono"
             onChange={handleChange}
           />
+          <span>{errors.telefono}</span>
         </FormControl>
 
         <Button type="submit">Enviar</Button>
