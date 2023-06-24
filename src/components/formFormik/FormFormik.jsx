@@ -11,6 +11,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 //https://chakra-ui.com/docs/components/form-control/usage
+//no le agregue helpertext, usa validación de chakra
+//Yup & Formik
 
 const FormFormik = () => {
   const { handleSubmit, handleChange, errors } = useFormik({
@@ -61,7 +63,7 @@ const FormFormik = () => {
           <Input
             name="telefono"
             type="number"
-            placeholder="number"
+            placeholder="Número"
             onChange={handleChange}
           />
           <span>{errors.telefono}</span>
