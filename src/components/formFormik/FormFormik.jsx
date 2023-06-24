@@ -27,6 +27,9 @@ const FormFormik = () => {
       nombre: Yup.string()
         .required('Complete este campo')
         .min(3, 'Ingrese al menos 3 caracteres'),
+      email: Yup.string()
+        .email("Ingrese unemail valido!")
+        .required("Completar para continuar"),
     }),
   });
 
