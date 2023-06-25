@@ -28,9 +28,9 @@ const ItemListContainer = () => {
   //if con return temprano - TECNICA DE RENDERING
   if (items.length === 0) {
     return (
-      <h1>
-        <PacmanLoader color="#36d7b7" />
-      </h1>
+      <center><h1>
+        <PacmanLoader color="#FFFF00" />
+      </h1></center>
     );
   }
 
