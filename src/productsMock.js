@@ -22,7 +22,7 @@ export const products = [
         id: 3,
         title: "Vino Rosado",
         price: 1900,
-        stock: 5,
+        stock: 0,
         description: "Vino para la gente sofisticada",
         category: "rosado",
         img: "https://res.cloudinary.com/da5x6tuuw/image/upload/v1685658886/rosado_srocyf.jpg"

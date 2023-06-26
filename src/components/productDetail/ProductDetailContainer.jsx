@@ -3,7 +3,6 @@ import ProductDetail from './ProductDetail';
 import { products } from '../../productsMock';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import { Divider } from '@chakra-ui/react';
 import { PacmanLoader } from 'react-spinners';
 
 const ProductDetailContainer = () => {
@@ -14,7 +13,17 @@ const ProductDetailContainer = () => {
   const { id } = useParams();
 
   const cantidad = getTotalQuantityById(id);
-  console.log('la cantidad es: ', cantidad);
+  
+  const onAdd = (cantidad) => {
+    
+    let data = {
+      ...productSelected,
+      quantity: cantidad,
+    };
+
+    addToCart(data)
+  };
+
 
   useEffect(() => {
     let productFind = products.find((product) => product.id === +id);
@@ -38,6 +47,7 @@ const ProductDetailContainer = () => {
           cantidad={cantidad}
           productSelected={productSelected}
           addToCart={addToCart}
+          onAdd={onAdd}
         />
       ) : (
         <center>
