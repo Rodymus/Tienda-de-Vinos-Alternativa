@@ -4,6 +4,8 @@ import { products } from '../../productsMock';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { PacmanLoader } from 'react-spinners';
+import Swal from 'sweetalert2'
+
 
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
@@ -22,7 +24,13 @@ const ProductDetailContainer = () => {
     };
 
     addToCart(data)
-    alert("Se agrego exitosamente")
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Producto agregado correctamente!',
+      showConfirmButton: false,
+      timer: 1000
+    })
   };
 
 
