@@ -22,6 +22,7 @@ const ProductDetailContainer = () => {
     };
 
     addToCart(data)
+    alert("Se agrego exitosamente")
   };
 
 
