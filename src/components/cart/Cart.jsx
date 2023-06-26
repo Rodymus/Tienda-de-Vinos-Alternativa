@@ -6,10 +6,12 @@ import Swal from 'sweetalert2'
 
 const Cart = () => {
 
-  const { cart, clearCart, removeById } = useContext(CartContext)
+  const { cart, clearCart, removeById, getTotalPrice } = useContext(CartContext)
+
+  let total = getTotalPrice()
 
   const limpiar = ()=> {
-    Swal.fire({
+    Swal.fire({ 
       title: 'Seguro quieres limpiar el carrito?',
       showDenyButton: true,
       showCancelButton: false,
@@ -31,6 +33,7 @@ const Cart = () => {
       {
         cart.map( product =>  {
           return <div key= {product.id}>
+            <h3>El total del carrito es: $ {total}</h3>
             <button onClick={limpiar}>Limpiar carrito</button>
             <h2>{product.title}</h2>
             <h3>{product.price}</h3>
