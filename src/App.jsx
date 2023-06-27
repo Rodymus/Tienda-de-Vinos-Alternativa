@@ -1,6 +1,6 @@
 import './App.css';
 import ItemListContainer from './components/items/ItemListContainer';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Checkbox } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import ProductDetailContainer from "./components/productDetail/ProductDetailContainer";
@@ -29,6 +29,7 @@ const App = () => {
                 <Route path="/itemDetail/:id" element={<ProductDetailContainer />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route path="/form" element={<FormFormik />} />
+                
             </Routes>
           </CartContextProvider>
         </BrowserRouter>
