@@ -7,6 +7,7 @@ import ProductDetailContainer from "./components/productDetail/ProductDetailCont
 import Cart from './components/cart/Cart';
 import CartContextProvider from './context/CartContext';
 import FormFormik from './components/formFormik/FormFormik';
+import CheckoutContainer from './components/checkout/CheckoutContainer';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/itemDetail/:id" element={<ProductDetailContainer />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route path="/form" element={<FormFormik />} />
+                <Route path="/checkout" element={<CheckoutContainer />} />
                 
             </Routes>
           </CartContextProvider>
