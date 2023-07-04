@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCeusHBWciexV09dgKmY_7IDqqhjmfQsgw",
-  authDomain: "tiendavinos-rcg.firebaseapp.com",
-  projectId: "tiendavinos-rcg",
-  storageBucket: "tiendavinos-rcg.appspot.com",
-  messagingSenderId: "1075526627816",
-  appId: "1:1075526627816:web:cc27fe3dc06b5bbb26345d"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROYECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET ,
+  messagingSenderId: import.meta.env.VITE_MESSAGING,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 // Initialize Firebase
