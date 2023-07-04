@@ -1,7 +1,8 @@
 import { Divider } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -39,6 +40,9 @@ const Cart = () => {
             <h3>{product.price}</h3>
             <h3>{product.quantity}</h3>
             <button onClick={()=>removeById(product.id)}>Eliminar</button>
+            <Link to="/checkout">
+                <button variant="contained">Finalizar compra</button>
+            </Link>
           </div>
         })
       }

@@ -1,9 +1,17 @@
 import Checkout from "./Checkout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { db } from "../../firebaseConfig";
+import {collection, addDoc} from "firebase/firestore";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
 
 const CheckoutContainer = () => {
-  const { handleSubmit, handleChange } = useFormik({
+
+  const {cart, getTolalPrice}= useContext( CartContext)
+
+  const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -11,7 +19,15 @@ const CheckoutContainer = () => {
     },
     onSubmit: (data) => {
       // ACA MANEJAMOS LA LOGICA DEL FORM
-      console.log(data);
+
+      let order = {
+        buyer: data,
+        items: [],
+        total: 0
+      }
+
+      let ordersCollection = collection(db, "orders")
+      addDoc(ordersCollection, order)
     },
     validateOnChange: false,
     validationSchema: Yup.object({
@@ -28,8 +44,7 @@ const CheckoutContainer = () => {
   });
 
 
-
-  return <Checkout handleSubmit={handleSubmit} handleChange={handleChange} />;
+  return <Checkout handleSubmit={handleSubmit} handleChange={handleChange} errors={errors} />;
 };
 
 export default CheckoutContainer;
