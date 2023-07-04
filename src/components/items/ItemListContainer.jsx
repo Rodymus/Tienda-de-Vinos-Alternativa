@@ -8,7 +8,7 @@ import { PacmanLoader } from 'react-spinners';
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const { categoryN } = useParams();
-
+ 
   useEffect(() => {
 
     let itemsCollection = collection(db, "products")
