@@ -7,36 +7,14 @@ import {
   Input,
 } from "@chakra-ui/react";
 
-const Checkout = ({ handleSubmit, handleChange, errors }) => {
+const Checkout = ({ handleSubmit, handleChange }) => {
   return (
     <div style={{ paddingTop: "50px" }}>
       <form onSubmit={handleSubmit}>
-        <FormControl>
-          <FormLabel>Ingresa tus datos</FormLabel>
-          <Input
-            name="nombre"
-            type="text"
-            placeholder="Nombre"
-            onChange={handleChange}
-          />
-          <span>{errors.nombre}</span>
-          <Input
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-          <span>{errors.email}</span>
-          <Input
-            name="telefono"
-            type="number"
-            placeholder="Número"
-            onChange={handleChange}
-          />
-          <span>{errors.telefono}</span>
-        </FormControl>
-
-        <Button type="submit">Comprar</Button>
+      <Input placeholder='Name' name='name' onChange={handleChange}/>
+      <Input placeholder='Email' name='email' onChange={handleChange}/>
+      <Input placeholder='Phone' name='phone' onChange={handleChange}/>
+      <Button type='submit'>Comprar</Button>
       </form>
     </div>
   );

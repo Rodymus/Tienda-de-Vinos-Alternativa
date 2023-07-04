@@ -3,14 +3,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const CheckoutContainer = () => {
-  const { handleSubmit, handleChange, errors } = useFormik({
+  const { handleSubmit, handleChange } = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
     },
     onSubmit: (data) => {
-      // ACA MANEJAMOS LA LOGICA DE LO QUE QUEREMOS HACER CUANDO SE ENVIE EL FORM
+      // ACA MANEJAMOS LA LOGICA DEL FORM
       console.log(data);
     },
     validateOnChange: false,
@@ -29,7 +29,7 @@ const CheckoutContainer = () => {
 
 
 
-  return <Checkout handleSubmit={handleSubmit} handleChange={handleChange} errors={errors} />;
+  return <Checkout handleSubmit={handleSubmit} handleChange={handleChange} />;
 };
 
 export default CheckoutContainer;
