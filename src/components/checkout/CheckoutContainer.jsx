@@ -19,6 +19,7 @@ const CheckoutContainer = () => {
     },
     onSubmit: (data) => {
       // ACA MANEJAMOS LA LOGICA DEL FORM
+      // hasta 1:15 del video clase 14
 
       let order = {
         buyer: data,
