@@ -60,7 +60,7 @@ const CheckoutContainer = () => {
   return (
     <div>
       {orderId ? (
-        <h1>Su compra fue exitosa, el numero de comprobante es: {orderId}</h1>
+        <h1>Su numero de comprobante es: {orderId}</h1>
       ) : (
         <Checkout
           handleSubmit={handleSubmit}
