@@ -9,9 +9,9 @@ import { CartContext } from "../../context/CartContext";
 
 const CheckoutContainer = () => {
 
-  const {cart, getTolalPrice}= useContext( CartContext)
+  const {cart, getTotalPrice}= useContext( CartContext )
 
-  let total = getTolalPrice()
+  let total = getTotalPrice()
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
