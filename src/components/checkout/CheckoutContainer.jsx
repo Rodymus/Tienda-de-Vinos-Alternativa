@@ -9,7 +9,7 @@ import { CartContext } from "../../context/CartContext";
 
 const CheckoutContainer = () => {
 
-  const {cart, getTotalPrice}= useContext( CartContext )
+  const {cart, getTotalPrice, clearCart}= useContext( CartContext )
 
   let total = getTotalPrice()
 
@@ -30,6 +30,15 @@ const CheckoutContainer = () => {
 
       let ordersCollection = collection(db, "orders")
       addDoc(ordersCollection, order).then((res)=> setOrderId(res.id))
+
+      cart.forEach((product) => {
+        updateDoc(doc(db, "products", product.id), {
+          stock: product.stock - product.quantity,
+        });
+      });
+
+      clearCart();
+
     },
     validateOnChange: false,
     validationSchema: Yup.object({
@@ -46,7 +55,19 @@ const CheckoutContainer = () => {
   });
 
 
-  return <Checkout handleSubmit={handleSubmit} handleChange={handleChange} errors={errors} />;
+  return (
+    <div>
+      {orderId ? (
+        <h1>Su compra fue exitosa, el numero de comprobante es: {orderId}</h1>
+      ) : (
+        <Checkout
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          errors={errors}
+        />
+      )}
+    </div>
+  );
 };
 
 export default CheckoutContainer;
