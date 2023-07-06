@@ -11,6 +11,8 @@ const CheckoutContainer = () => {
 
   const {cart, getTolalPrice}= useContext( CartContext)
 
+  let total = getTolalPrice()
+
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
@@ -19,12 +21,11 @@ const CheckoutContainer = () => {
     },
     onSubmit: (data) => {
       // ACA MANEJAMOS LA LOGICA DEL FORM
-      // hasta 1:15 del video clase 14
-
+  
       let order = {
         buyer: data,
-        items: [],
-        total: 0
+        items: cart,
+        total: total
       }
 
       let ordersCollection = collection(db, "orders")
