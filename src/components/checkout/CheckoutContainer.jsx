@@ -29,7 +29,7 @@ const CheckoutContainer = () => {
       }
 
       let ordersCollection = collection(db, "orders")
-      addDoc(ordersCollection, order)
+      addDoc(ordersCollection, order).then((res)=> setOrderId(res.id))
     },
     validateOnChange: false,
     validationSchema: Yup.object({
