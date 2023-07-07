@@ -5,7 +5,7 @@ import { db } from "../../firebaseConfig";
 import {collection, addDoc} from "firebase/firestore";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-
+import { Text } from '@chakra-ui/react';
 
 const CheckoutContainer = () => {
 
@@ -58,8 +58,12 @@ const CheckoutContainer = () => {
 
 
   return (
+    
     <div>
+      <Text as='i'>Gracias por su compra!!!</Text>
+      
       {orderId ? (
+        
         <h1>Su numero de comprobante es: {orderId}</h1>
       ) : (
         <Checkout
