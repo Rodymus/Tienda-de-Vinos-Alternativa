@@ -1,4 +1,4 @@
-import { Button, Divider, Stack } from "@chakra-ui/react";
+import { Button, Divider, Stack, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Swal from 'sweetalert2';
@@ -34,10 +34,12 @@ const Cart = () => {
       {
         cart.map( product =>  {
           return <div key= {product.id}>
-            <h3>El total del carrito es: $ {total}</h3>
-            <Stack><h2>{product.title}</h2><h3>$ {product.price}</h3>
-            <h3>{product.quantity}</h3></Stack>
+            <h3><Text as='b'>El total del carrito es: $ {total}</Text></h3>
+            <h1>Resumen de su Carrito</h1>
+            <Stack direction='row' spacing={2}><h3>{product.quantity}</h3><h3>{product.title}</h3><h3>$ {product.price}</h3>
+            </Stack>
             <Stack direction='row' spacing={4} align='center'>
+            <br></br>
             <Button onClick={limpiar}>Limpiar carrito</Button>
             <Button onClick={()=>removeById(product.id)}>Eliminar</Button>
             <Link to="/checkout">
