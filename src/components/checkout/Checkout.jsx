@@ -13,8 +13,11 @@ const Checkout = ({ handleSubmit, handleChange, errors }) => {
       <form onSubmit={handleSubmit}>
       <FormControl >
       <Input placeholder='Name' name='name' onChange={handleChange}/>
+      <span>{errors.name}</span>
       <Input placeholder='Email' name='email' onChange={handleChange}/>
+      <span>{errors.email}</span>
       <Input placeholder='Phone' name='phone' onChange={handleChange}/>
+      <span>{errors.phone}</span>
       </FormControl >
       <Button type='submit'>Comprar</Button>
       </form>
